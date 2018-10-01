@@ -1,17 +1,17 @@
 package it.marteEngine.game.starcleaner;
 
-import it.marteEngine.ResourceManager;
-import it.marteEngine.entity.Solid;
+import it.marteEngine.entity.Entity;
+import it.marteEngine.resource.ResourceManager;
 
-import org.newdawn.slick.SlickException;
+public class Block extends Entity {
 
-public class Block extends Solid {
-
-	public Block(float x, float y, int w, int h) throws SlickException {
-		super(x, y, w, h);
-		name = "block";
-		depth = 5;
-		currentImage = ResourceManager.getImage("block");
-	}
+  public Block(float x, float y) {
+    super(x, y);
+    name = "block";
+    depth = 5;
+    setGraphic(ResourceManager.getImage("block"));
+    addType(SOLID);
+    setHitBox(0, 0, width, height);
+  }
 
 }
